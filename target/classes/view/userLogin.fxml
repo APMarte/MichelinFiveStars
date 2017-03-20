@@ -9,22 +9,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="731.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.65"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.roothless.controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.roothless.controller.LoginController">
    <children>
-      <ImageView fitHeight="235.0" fitWidth="411.0" layoutX="244.0" layoutY="80.0">
+      <ImageView fitHeight="817.0" fitWidth="987.0" layoutX="7.0" layoutY="7.0">
          <image>
-            <Image url="@/logo_banner_normal_720.png" />
+            <Image url="@/restview.png" />
          </image>
       </ImageView>
-      <TextField fx:id="userField" layoutX="366.0" layoutY="249.0" />
-      <Label layoutX="273.0" layoutY="254.0" style="-fx-text-fill: white;" text="CodeCadet_" />
-      <Label layoutX="275.0" layoutY="293.0" style="-fx-text-fill: white;" text="Password_" />
-      <PasswordField fx:id="password" layoutX="366.0" layoutY="288.0" />
-      <Button fx:id="loginButton" layoutX="366.0" layoutY="371.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="83.0" text="Login" />
-      <Label fx:id="message" layoutX="299.0" layoutY="442.0" prefHeight="17.0" prefWidth="285.0" text="console.log(&quot;something is wrong&quot;);" textFill="#d01212" visible="true" />
-      <Label fx:id="mailLabel" layoutX="293.0" layoutY="335.0" style="-fx-text-fill: white;" text="Mail_" />
-      <TextField fx:id="mailField" layoutX="366.0" layoutY="330.0" />
-      <Hyperlink fx:id="register" layoutX="381.0" layoutY="409.0" onAction="#registerUser" text="Register" underline="true" />
+      <TextField fx:id="userField" alignment="CENTER" layoutX="417.0" layoutY="336.0" promptText="username" />
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="417.0" layoutY="376.0" promptText="password" />
+      <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="458.0" layoutY="457.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="83.0" text="Login" textAlignment="CENTER" />
+      <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="363.0" layoutY="570.0" prefHeight="17.0" prefWidth="285.0" text="console.log(&quot;something is wrong&quot;);" textFill="#d01212" visible="true" />
+      <TextField fx:id="mailField" alignment="CENTER" layoutX="417.0" layoutY="415.0" promptText="e-mail"/>
+      <Hyperlink fx:id="register" layoutX="470.0" layoutY="509.0" onAction="#registerUser" text="Register" underline="false" />
    </children>
 </Pane>
