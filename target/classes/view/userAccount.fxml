@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.controller.LogoutXController">
+   <children>
+      <ImageView fitHeight="284.0" fitWidth="499.0" layoutX="108.0" layoutY="96.0">
+         <image>
+            <Image url="@/logo_banner_normal_720.png" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="27.0" prefWidth="714.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open..." />
+                  <MenuItem mnemonicParsing="false" text="Open Recent" />
+                  <MenuItem fx:id="itemLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As..." />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <MenuItem mnemonicParsing="false" text="Preferences" />
+              <MenuItem fx:id="itemClose" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</Pane>

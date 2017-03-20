@@ -37,25 +37,23 @@ public final class HibernateSessionManager {
         return sessionFactory.getCurrentSession();
     }
 
-    // Required to stop hibernate and allow the application to terminate
-    public static void close() {
-        sessionFactory.close();
-    }
-
     public static Session beginTransaction(){
 
-        Transaction transaction = getSession().getTransaction();
-        transaction.begin();
-
-        return getSession();
+        Session session = getSession();
+        session.getTransaction().begin();
+        return session;
     }
 
     public static void commitTransaction(){
-        beginTransaction().getTransaction().commit();
+        getSession().getTransaction().commit();
     }
 
     public static void rollbackTransaction(){
-        beginTransaction().getTransaction().rollback();
+        getSession().getTransaction().rollback();
+    }
+
+    public static void close() {
+        sessionFactory.close();
     }
 
 }

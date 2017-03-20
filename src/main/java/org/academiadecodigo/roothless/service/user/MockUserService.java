@@ -1,6 +1,7 @@
 package org.academiadecodigo.roothless.service.user;
 
-import org.academiadecodigo.bootcamp.model.User;
+
+import org.academiadecodigo.roothless.model.User;
 
 import java.util.LinkedList;
 
