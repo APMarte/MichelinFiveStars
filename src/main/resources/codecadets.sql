@@ -1,7 +1,7 @@
-drop database if exists codecadets;
+drop database if exists users;
 
-create database codecadets;
-  use codecadets;
+create database users;
+  use users;
 
   create table User(
     user_id integer AUTO_INCREMENT,
@@ -12,5 +12,8 @@ create database codecadets;
 );
 
 
-insert into client(username, email, password) values ('Manuel', 'maneldascouves@youporn.com', '123abc');
-insert into client(username, email, password) values ('Nuno', 'nunogostadecenoura@redtube.com', '456def');
+insert into User(username, email, password) values ('tome', 'xxx@youporn.com', '1234');
+insert into User(username, email, password) values ('antonio', 'xxxa@youporn.com', '1234');
+insert into User(username, email, password) values ('paulo', 'xxxp@youporn.com', '1234');
+insert into User(username, email, password) values ('ricardo', 'xxxr@youporn.com', '1234');
+insert into User(username, email, password) values ('luis', 'xxxl@youporn.com', '1234');
