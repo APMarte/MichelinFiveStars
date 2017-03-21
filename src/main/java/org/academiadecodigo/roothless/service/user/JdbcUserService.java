@@ -34,18 +34,18 @@ public class JdbcUserService implements UserService {
             dbConnection=connectionManager.getConnection();
         }
 
-        PreparedStatement statement = null;
+        PreparedStatement statement;
 
         String username = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();
 
         try {
-            String query = "INSERT INTO User(username, email, password) VALUES (?, ? , ?)";
+            String query = "INSERT INTO User(username, email, password) VALUES (?,?,?)";
             statement = dbConnection.prepareStatement(query);
             statement.setString(1,username);
             statement.setString(2,email);
-            statement.setString(3, password);
+            statement.setString(3,password);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,7 +60,7 @@ public class JdbcUserService implements UserService {
             dbConnection=connectionManager.getConnection();
         }
 
-        PreparedStatement statement = null;
+        PreparedStatement statement;
         User user = null;
 
         try {

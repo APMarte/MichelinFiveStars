@@ -48,8 +48,6 @@ public class LoginController implements Initializable {
     @FXML
     private Label message;
 
-    @FXML
-    private Label mailLabel;
 
     @FXML
     void login(ActionEvent event) {
@@ -101,13 +99,11 @@ public class LoginController implements Initializable {
         if (!mailField.isVisible()) {
             loginButton.setText("Sign in");
             mailField.setVisible(true);
-            mailLabel.setVisible(true);
             register.setText("Cancel");
         } else {
             loginButton.setText("Login");
             register.setText("Register");
             mailField.setVisible(false);
-            mailLabel.setVisible(false);
         }
 
         /*if (userField.getText() != null) {
@@ -131,7 +127,6 @@ public class LoginController implements Initializable {
         assert register != null : "fx:id=\"register\" was not injected: check your FXML file 'userLogin.fxml'.";
 
         mailField.setVisible(false);
-        mailLabel.setVisible(false);
         message.setVisible(false);
 
         setService((UserService)ServiceRegistry.getInstanceService().getService(UserService.class.getSimpleName()));

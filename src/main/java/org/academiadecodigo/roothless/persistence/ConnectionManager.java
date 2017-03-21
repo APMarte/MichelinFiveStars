@@ -9,9 +9,9 @@ import java.sql.SQLException;
  */
 public class ConnectionManager {
 
-    private String dbUrl= "jdbc:mysql://localhost:3306/codecadets" + "?allowMultiQueries=true";
-    private String user = "root";
-    private String pass = "";
+    private String dbUrl= "jdbc:mysql://localhost:3306/users" + "?allowMultiQueries=true";
+    private String user = "testUser";
+    private String pass = "0000";
 
     Connection connection = null;
 
