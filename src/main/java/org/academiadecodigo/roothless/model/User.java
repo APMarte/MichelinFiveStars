@@ -1,19 +1,12 @@
 package org.academiadecodigo.roothless.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * Created by codecadet on 07/03/17.
  */
 
-@Entity
 public class User {
 
-    @Id
-    @GeneratedValue
-    private int user_id;
+    private int id;
 
     private String username;
     private String email;
@@ -27,6 +20,14 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -51,14 +52,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getUserId() {
-        return user_id;
-    }
-
-    public void setUserId(int userId) {
-        this.user_id = userId;
     }
 
     @Override

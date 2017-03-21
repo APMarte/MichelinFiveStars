@@ -2,12 +2,12 @@ package org.academiadecodigo.roothless;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.academiadecodigo.bootcamp.model.User;
-import org.academiadecodigo.bootcamp.persistence.ConnectionManager;
-import org.academiadecodigo.bootcamp.service.ServiceRegistry;
-import org.academiadecodigo.bootcamp.service.user.JdbcUserService;
-import org.academiadecodigo.bootcamp.service.user.MockUserService;
-import org.academiadecodigo.bootcamp.util.Navigation;
+import org.academiadecodigo.roothless.model.User;
+import org.academiadecodigo.roothless.persistence.ConnectionManager;
+import org.academiadecodigo.roothless.service.ServiceRegistry;
+import org.academiadecodigo.roothless.service.user.JdbcUserService;
+import org.academiadecodigo.roothless.service.user.MockUserService;
+import org.academiadecodigo.roothless.util.Navigation;
 
 /**
  * Created by codecadet on 07/03/17.
