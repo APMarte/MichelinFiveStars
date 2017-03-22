@@ -25,12 +25,6 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private TextField userField;
 
     @FXML
@@ -61,7 +55,7 @@ public class LoginController implements Initializable {
                 Navigation.getInstance().getController("userAccount");
             } else {
                 message.setTextFill(Color.RED);
-                message.setText("Invalid User, please go fuck yourself");
+                message.setText("Invalid User, please try again");
                 message.setVisible(true);
             }
         }
@@ -73,14 +67,14 @@ public class LoginController implements Initializable {
             } else {
                 if (userField.getText().equals("")) {
                     message.setTextFill(Color.RED);
-                    message.setText("Please give me something");
+                    message.setText("A username must be inserted");
                 } else {
                     if (mailField.getText().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
                         service.addUser(new User(userField.getText(), mailField.getText(), password.getText()));
                         System.out.println(service.findByName(userField.getText()));
                     } else {
                         message.setTextFill(Color.RED);
-                        message.setText("Invalid E-mail, please go home");
+                        message.setText("Invalid E-mail, please reinsert your email");
                     }
                 }
                 message.setVisible(false);
@@ -105,15 +99,6 @@ public class LoginController implements Initializable {
             register.setText("Register");
             mailField.setVisible(false);
         }
-
-        /*if (userField.getText() != null) {
-            if (service.findByName(userField.getText()) != null) {
-                service.addUser(new User(userField.getText(), password.getText(), mailField.getText()));
-                message.setText("User created");
-            }
-        }else{
-            message.setText("Please give me something");
-        }*/
 
     }
 

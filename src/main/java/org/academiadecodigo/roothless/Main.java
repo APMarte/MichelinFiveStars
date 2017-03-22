@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.persistence.ConnectionManager;
+import org.academiadecodigo.roothless.persistence.HibernateSessionManager;
 import org.academiadecodigo.roothless.service.ServiceRegistry;
+import org.academiadecodigo.roothless.service.user.HibernateUserService;
 import org.academiadecodigo.roothless.service.user.JdbcUserService;
 import org.academiadecodigo.roothless.service.user.MockUserService;
 import org.academiadecodigo.roothless.util.Navigation;
@@ -19,22 +21,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //MockUserService mockUserService = new MockUserService();
-        /*User user = new User();
-        user.setUsername("Jesus");
-        user.setPassword("MessiasSouEu");
-        user.setEmail("cantseeme@heaven.domain");*/
-        //mockUserService.addUser(user);
+        HibernateUserService hibernateUserService = new HibernateUserService();
 
-        JdbcUserService jdbcUserService = new JdbcUserService(new ConnectionManager());
-        //jdbcUserService.addUser(user);
-
-        ServiceRegistry.getInstanceService().addService(jdbcUserService);
+        ServiceRegistry.getInstanceService().addService(hibernateUserService);
 
         Navigation.getInstance().setStage(primaryStage);
-        Navigation.getInstance().loadScreen("userLogin");
-        //Initializable controller = Navigation.getInstance().getController("userLogin");
-        //((LoginController) controller).setService((UserService) ServiceRegistry.getInstanceService().getService("userService"));
+        Navigation.getInstance().loadScreen("registration_view");
     }
 
 

@@ -17,7 +17,7 @@
       <Button fx:id="register_button" layoutX="503.0" layoutY="512.0" mnemonicParsing="false" onAction="#register_button_pressed" text="Register" />
       <ImageView fitHeight="200.0" fitWidth="158.0" layoutX="14.0" layoutY="15.0">
          <image>
-            <Image url="@../photos/Crests%20dos%20ROOThless%20black.jpg" />
+            <Image url="@../photos/CrestsROOThless.jpg" />
          </image>
       </ImageView>
       <PasswordField fx:id="password_login_field" layoutX="17.0" layoutY="465.0" prefHeight="27.0" prefWidth="252.0" promptText="insert password here" />

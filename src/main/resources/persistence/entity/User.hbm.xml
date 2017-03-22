@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 
-    <class name="org.academiadecodigo.roothless.model.User" table="user">
+    <class name="org.academiadecodigo.roothless.model.User" table="client">
 
         <id name="id" column="id" type="int">
             <generator class="identity" />
