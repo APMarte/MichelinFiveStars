@@ -10,7 +10,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" type="Pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" type="Pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.roothless.controller.Dashboard">
    <rotationAxis>
       <Point3D />
    </rotationAxis>
@@ -24,7 +24,7 @@
             <Menu mnemonicParsing="false" text="Management" />
         </menus>
       </MenuBar>
-      <PieChart fx:id="pie_orders" layoutX="30.0" layoutY="325.0" prefHeight="200.0" prefWidth="200.0" title="total_orders" />
+      <PieChart fx:id="pie_orders" layoutX="30.0" layoutY="325.0" prefHeight="200.0" prefWidth="200.0" title="total_orders"/>
       <AreaChart fx:id="day_status" layoutX="1.0" layoutY="42.0" prefHeight="230.0" prefWidth="801.0" title="status">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
