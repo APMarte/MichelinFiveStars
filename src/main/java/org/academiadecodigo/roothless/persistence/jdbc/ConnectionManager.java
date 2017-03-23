@@ -1,4 +1,4 @@
-package org.academiadecodigo.roothless.persistence;
+package org.academiadecodigo.roothless.persistence.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.service.ServiceRegistry;
 import org.academiadecodigo.roothless.service.user.UserService;
-import org.academiadecodigo.roothless.util.Navigation;
+import org.academiadecodigo.roothless.Navigation;
 
 import java.net.URL;
 import java.util.ResourceBundle;

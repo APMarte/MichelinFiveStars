@@ -1,15 +1,10 @@
 package org.academiadecodigo.roothless.service.user;
 
 import org.academiadecodigo.roothless.model.User;
-import org.academiadecodigo.roothless.persistence.ConnectionManager;
-import org.academiadecodigo.roothless.persistence.HibernateSessionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-
-import java.sql.*;
-import java.util.List;
 
 /**
  * Created by codecadet on 13/03/17.
@@ -20,20 +15,30 @@ public class HibernateUserService implements UserService {
     Session session;
 
     @Override
-    public boolean authenticate(String name, String password) {
+    public boolean authenticate(String username, String password) {
+
+        boolean result = false;
 
         session = HibernateSessionManager.beginTransaction();     // Start transaction
 
-        User user = (User) session.createCriteria(User.class)
-                .add(Restrictions.eq("username", name))
-                .add(Restrictions.eq("password", password))
-                .uniqueResult();
+        Query query = session.createQuery("from User where username= :username");
+        query.setString("username", username);
+        query.setString("password", password);
+        result = findOne(query) !=null;
 
-        HibernateSessionManager.commitTransaction();        // Persist transaction
+        return result;
 
-        if(user==null){return false;}                   // If there is no user return false
 
-        return true;
+//        User user = (User) session.createCriteria(User.class)
+//                .add(Restrictions.eq("username", username))
+//                .add(Restrictions.eq("password", password))
+//                .uniqueResult();
+//
+//        HibernateSessionManager.commitTransaction();        // Persist transaction
+//
+//        if(user==null){return false;}                   // If there is no user return false
+//
+//        return true;
     }
 
     @Override
@@ -41,6 +46,8 @@ public class HibernateUserService implements UserService {
 
         try{
             session = HibernateSessionManager.beginTransaction();      // Start transaction
+
+            // add a query to check if it exists
             session.save(user);
             HibernateSessionManager.commitTransaction();
         }        catch (HibernateException ex) {     // insert info on error in console
@@ -49,13 +56,13 @@ public class HibernateUserService implements UserService {
     }
 
     @Override
-    public User findByName(String name) {
+    public User findByName(String username) {
 
         session = HibernateSessionManager.beginTransaction();       // Start transaction
 
-        Query find = session.createQuery("from User where username = :name");
+        Query find = session.createQuery("from User where username = :username");
 
-        find.setString("name", name);
+        find.setString("name", username);
         User userName = (User) find.uniqueResult();
 
         HibernateSessionManager.commitTransaction();            // Persist transaction
@@ -67,14 +74,22 @@ public class HibernateUserService implements UserService {
     @Override
     public int count() {
 
-        session = HibernateSessionManager.beginTransaction();   // Start transaction
+        int size = 0;
 
-        Query count = session.createQuery("SELECT COUNT (*) from User") ;
-        Integer number = count.getMaxResults();
+        try {
+            session = HibernateSessionManager.beginTransaction();   // Start transaction
 
-        HibernateSessionManager.commitTransaction();             // Persist transaction
+            size = ((Long) session.createQuery("SELECT COUNT (*) from User")
+                    .uniqueResult())
+                    .intValue();
 
-        return number;
+            HibernateSessionManager.commitTransaction();             // Persist transaction
+        } catch (HibernateException ex) {
+
+            System.out.println("Error counting the number of users : " + ex.getMessage());
+            HibernateSessionManager.rollbackTransaction();
+        }
+        return size;
     }
 
     public String getType(){

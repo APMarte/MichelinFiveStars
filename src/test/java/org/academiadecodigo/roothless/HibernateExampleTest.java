@@ -1,7 +1,7 @@
 package org.academiadecodigo.roothless;
 
 import org.academiadecodigo.roothless.model.User;
-import org.academiadecodigo.roothless.persistence.HibernateSessionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;

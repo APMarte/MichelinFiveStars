@@ -1,7 +1,8 @@
-package org.academiadecodigo.roothless.service.user;
+package org.academiadecodigo.roothless.service.jdbc;
 
 import org.academiadecodigo.roothless.model.User;
-import org.academiadecodigo.roothless.persistence.ConnectionManager;
+import org.academiadecodigo.roothless.persistence.jdbc.ConnectionManager;
+import org.academiadecodigo.roothless.service.user.UserService;
 
 import java.sql.*;
 

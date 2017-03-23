@@ -1,4 +1,4 @@
-package org.academiadecodigo.roothless.util;
+package org.academiadecodigo.roothless;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

@@ -1,4 +1,4 @@
-package org.academiadecodigo.roothless.persistence;
+package org.academiadecodigo.roothless.persistence.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -31,7 +31,7 @@ public final class HibernateSessionManager {
         }
     }
 
-    public static Session getSession() {
+    private static Session getSession() {
         // Hibernate will automatically open a new session if needed
         // Closing the session is not required
         return sessionFactory.getCurrentSession();
