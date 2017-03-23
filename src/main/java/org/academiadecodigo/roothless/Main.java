@@ -2,6 +2,7 @@ package org.academiadecodigo.roothless;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.service.ServiceRegistry;
 import org.academiadecodigo.roothless.service.user.HibernateUserService;
 
@@ -23,8 +24,9 @@ public class Main extends Application {
         Navigation.getInstance().loadScreen("registration_view");
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }
