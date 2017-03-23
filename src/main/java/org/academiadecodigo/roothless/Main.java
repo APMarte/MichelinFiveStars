@@ -3,8 +3,15 @@ package org.academiadecodigo.roothless;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.roothless.model.User;
+import org.academiadecodigo.roothless.model.dao.UserDao;
+import org.academiadecodigo.roothless.model.dao.hibernate.HibernateUserDao;
+import org.academiadecodigo.roothless.persistence.TransactionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateTransactionManager;
 import org.academiadecodigo.roothless.service.ServiceRegistry;
 import org.academiadecodigo.roothless.service.user.HibernateUserService;
+import org.academiadecodigo.roothless.service.user.UserService;
+import org.academiadecodigo.roothless.service.user.UserServiceImpl;
 
 
 /**
@@ -15,6 +22,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+
+        UserDao userDao = new HibernateUserDao();
+        TransactionManager transactionManager = new HibernateTransactionManager();
+        UserService userService = new UserServiceImpl(userDao, transactionManager);
+
+
 
         HibernateUserService hibernateUserService = new HibernateUserService();
 

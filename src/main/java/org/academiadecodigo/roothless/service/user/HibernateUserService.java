@@ -12,48 +12,44 @@ import org.hibernate.Session;
 public class HibernateUserService implements UserService {
 
 
-    Session session;
+    private Session session;
 
     @Override
     public boolean authenticate(String username, String password) {
 
         boolean result = false;
 
-        session = HibernateSessionManager.beginTransaction();     // Start transaction
+            try {
+                session = HibernateSessionManager.beginTransaction();     // Start transaction
 
-        Query query = session.createQuery("from User where username= :username");
-        query.setString("username", username);
-        query.setString("password", password);
-        result = findOne(query) !=null;
+                Query query = session.createQuery("from User where username = :username");
+                query.setString("username", username);
+                result = findOne(query) != null;
+            } catch (HibernateException ex) {
+                System.out.println("Error authenticating: " + ex.getMessage());
+                HibernateSessionManager.rollbackTransaction();
+            }
 
         return result;
-
-
-//        User user = (User) session.createCriteria(User.class)
-//                .add(Restrictions.eq("username", username))
-//                .add(Restrictions.eq("password", password))
-//                .uniqueResult();
-//
-//        HibernateSessionManager.commitTransaction();        // Persist transaction
-//
-//        if(user==null){return false;}                   // If there is no user return false
-//
-//        return true;
     }
 
     @Override
     public void addUser(User user) {
 
-        try{
+        try {
             session = HibernateSessionManager.beginTransaction();      // Start transaction
-
-            // add a query to check if it exists
-            session.save(user);
-            HibernateSessionManager.commitTransaction();
-        }        catch (HibernateException ex) {     // insert info on error in console
-            HibernateSessionManager.rollbackTransaction();         // Persist transaction
+            Query query = session.createQuery("from User where username = :username");
+            query.setString("username", user.getUsername());
+            if (findOne(query) != null) {
+                ;
+                // add a query to check if it exists
+                session.save(user);
+                HibernateSessionManager.commitTransaction();
+            }
+        } catch(HibernateException ex){     // insert info on error in console
+                HibernateSessionManager.rollbackTransaction();         // Persist transaction
+            }
         }
-    }
 
     @Override
     public User findByName(String username) {
@@ -62,7 +58,7 @@ public class HibernateUserService implements UserService {
 
         Query find = session.createQuery("from User where username = :username");
 
-        find.setString("name", username);
+        find.setString("username", username);
         User userName = (User) find.uniqueResult();
 
         HibernateSessionManager.commitTransaction();            // Persist transaction
@@ -70,6 +66,10 @@ public class HibernateUserService implements UserService {
         return userName;
 
     }
+
+private User findOne(Query query){
+    return (User) query.uniqueResult();
+}
 
     @Override
     public int count() {
@@ -79,7 +79,7 @@ public class HibernateUserService implements UserService {
         try {
             session = HibernateSessionManager.beginTransaction();   // Start transaction
 
-            size = ((Long) session.createQuery("SELECT COUNT (*) from User")
+            size = ((Long) session.createQuery("SELECT COUNT (*) from User ")
                     .uniqueResult())
                     .intValue();
 

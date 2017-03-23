@@ -37,6 +37,7 @@ public final class HibernateSessionManager {
         return sessionFactory.getCurrentSession();
     }
 
+
     public static Session beginTransaction(){
 
         Session session = getSession();

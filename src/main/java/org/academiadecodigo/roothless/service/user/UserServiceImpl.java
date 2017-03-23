@@ -1,47 +1,46 @@
 package org.academiadecodigo.roothless.service.user;
 import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.model.dao.UserDao;
+import org.academiadecodigo.roothless.persistence.TransactionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateTransactionManager;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by codecadet on 23/03/17.
  */
-public class UserServiceImpl implements UserDao{
+public class UserServiceImpl implements UserService{
 
+    private UserDao userDao;
+    private TransactionManager transactionManager;
 
-    //use a list has a kind of temp database
-
-    private List<User> users;
-
-    public UserServiceImpl(){
-        users = new ArrayList<>();
-//          Add some users here to test?
+    public UserServiceImpl(UserDao userDao, TransactionManager transactionManager) {
+        this.userDao = userDao;
+        this.transactionManager = transactionManager;
     }
 
-
-    //retrive list of students from the database
-    @Override
-    public List<User> getAll() {
-        return users;
+    public String getType(){
+        return UserService.class.getSimpleName();
     }
 
+  //// +++++++++++++++++++++
+
     @Override
-    public User getUser(int id) {
-        return users.get(id);
+    public boolean authenticate(String name, String password) {
+        return false;
     }
 
     @Override
-    public void updateUser(User user) {
-        users.get(user.getId()).setUsername(user.getUsername());
-        System.out.println("User: " + user.getUsername() + ",  was updated in the database");
+    public void addUser(User user) {
+
     }
 
     @Override
-    public void deleteUser(User user) {
-        users.remove(user.getId());
-        System.out.println("User: " + user.getUsername() + ", was deleted from database");
+    public User findByName(String name) {
+        return null;
     }
 
+    @Override
+    public int count() {
+        return 0;
+    }
 }
