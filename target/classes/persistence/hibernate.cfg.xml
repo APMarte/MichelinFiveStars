@@ -20,6 +20,7 @@
 
         <!--<mapping class="org.academiadecodigo.bootcamp.model.User"/>-->
         <mapping resource="persistence/entity/User.hbm.xml"/>
+        <mapping resource="persistence/entity/Role.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
