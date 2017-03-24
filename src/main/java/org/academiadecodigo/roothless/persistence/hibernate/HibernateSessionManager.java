@@ -13,13 +13,17 @@ import org.hibernate.service.ServiceRegistry;
  */
 public final class HibernateSessionManager {
 
+    private final static String HIBERNATE_CONFIG = "/persistence/hibernate.cfg.xml";
     private static SessionFactory sessionFactory;
+
+    private HibernateSessionManager() {
+    }
 
     static {
         try {
             // Hold services needed by Hibernate
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .configure("persistence/hibernate.cfg.xml") // Load settings from hibernate.cfg.xml
+                    .configure(HIBERNATE_CONFIG) // Load settings from hibernate.cfg.xml
                     .build();
 
             sessionFactory = new MetadataSources(serviceRegistry)
@@ -31,12 +35,30 @@ public final class HibernateSessionManager {
         }
     }
 
-    private static Session getSession() {
-        // Hibernate will automatically open a new session if needed
-        // Closing the session is not required
+    /**
+     * Obtains the current session from the Hibernate session factory
+     *
+     * @return The current session
+     */
+    public static Session getSession() {
+
+        /*
+         Due to automatic session context management,
+         (current_session_context_class = thread)
+         Hibernate will automatically open a new session if needed.
+
+         Closing the session is not required, Hibernate will close
+         the session when transaction is committed or rollback.
+         */
+
         return sessionFactory.getCurrentSession();
     }
 
+    /**
+     * Initiates a new transaction
+     *
+     * @return the session associated with the transaction
+     */
 
     public static Session beginTransaction(){
 
@@ -45,14 +67,24 @@ public final class HibernateSessionManager {
         return session;
     }
 
+    /**
+     * Terminates the current transaction
+     */
     public static void commitTransaction(){
         getSession().getTransaction().commit();
     }
 
+    /**
+     * Rollback the current transaction
+     */
     public static void rollbackTransaction(){
         getSession().getTransaction().rollback();
     }
 
+    /**
+     * Closes the Hibernate Session factory,
+     * necessary for application to quit
+     */
     public static void close() {
         sessionFactory.close();
     }
