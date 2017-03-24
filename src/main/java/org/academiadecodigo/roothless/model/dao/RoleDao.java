@@ -8,10 +8,8 @@ import java.util.List;
 /**
  * Created by codecadet on 23/03/17.
  */
-public interface RoleDao {
+public interface RoleDao extends Dao {
 
-    public List<Role> getAll();
-    public Role getRole(int id);
-    public void updateRole(Role role);
-    public void deleteUser(Role role);
+    User findRole(String name);
+
 }

@@ -1,5 +1,6 @@
 package org.academiadecodigo.roothless.service.user;
 import org.academiadecodigo.roothless.model.User;
+import org.academiadecodigo.roothless.model.dao.RoleDao;
 import org.academiadecodigo.roothless.model.dao.UserDao;
 import org.academiadecodigo.roothless.persistence.TransactionException;
 import org.academiadecodigo.roothless.persistence.TransactionManager;
@@ -12,17 +13,20 @@ import org.hibernate.Query;
 /**
  * Created by codecadet on 23/03/17.
  */
-public class UserServiceImpl implements UserService{
+public class UserServiceHibernateDaoImplementation implements UserService{
 
+    // program for the interface and not for the implementation. Add the interfaces here and use them on the constructor
     private UserDao userDao;
+    private RoleDao roleDao;
     private TransactionManager transactionManager;
 
-    public UserServiceImpl(UserDao userDao, TransactionManager transactionManager) {
+    public UserServiceHibernateDaoImplementation(UserDao userDao, TransactionManager transactionManager, RoleDao roleDao) {
         this.userDao = userDao;
+        this.roleDao = roleDao;
         this.transactionManager = transactionManager;
     }
 
-    @Override
+    @Override // send the service name to the service registry when asked
     public String getType(){
         return UserService.class.getSimpleName();
     }
@@ -86,12 +90,16 @@ public class UserServiceImpl implements UserService{
     public int count() {
         int size = 0;
         try{
+            transactionManager.begin();
             size=userDao.listSize();
             transactionManager.commit();
+
         }catch (TransactionException transactionException){
             System.out.println("Error, could not find user: " + transactionException.getMessage());
             transactionManager.rollback();
         }
         return size;
     }
+
+    // Could implement also find by id and update and delete
 }

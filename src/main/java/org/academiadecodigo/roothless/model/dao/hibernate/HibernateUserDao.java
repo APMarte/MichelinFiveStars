@@ -1,6 +1,7 @@
 package org.academiadecodigo.roothless.model.dao.hibernate;
 
 import org.academiadecodigo.roothless.model.User;
+import org.academiadecodigo.roothless.model.dao.AbstractDao;
 import org.academiadecodigo.roothless.model.dao.UserDao;
 import org.academiadecodigo.roothless.persistence.TransactionException;
 import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
@@ -14,22 +15,12 @@ import java.util.List;
 /**
  * Created by codecadet on 23/03/17.
  */
-public class HibernateUserDao implements UserDao {
+public class HibernateUserDao extends AbstractDao <User> implements UserDao {
 
     Session session;
 
-    @Override
-    public void create(User user) {
-        try {
-            session = HibernateSessionManager.getSession();
-            session.save(user);
-        } catch (HibernateException hibernateException) {
-            throw new TransactionException(hibernateException);
-        }
 
-    }
 
-    @Override
     public User read(String name) {
 
         User user = null;
@@ -47,29 +38,7 @@ public class HibernateUserDao implements UserDao {
         return user;
     }
 
-    @Override
-    public void update(User user) {
-        try {
-            session = HibernateSessionManager.getSession();
-            session.merge(user);
 
-        } catch (HibernateException ex) {
-            throw new TransactionException(ex);
-        }
-    }
-
-    @Override
-    public void delete(User user) {
-
-        try {
-            session = HibernateSessionManager.getSession();
-            session.delete(user);
-
-        } catch (HibernateException ex) {
-            throw new TransactionException(ex);
-        }
-
-    }
 
     @Override
     public int listSize() {

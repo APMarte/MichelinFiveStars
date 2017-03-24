@@ -1,5 +1,8 @@
 package org.academiadecodigo.roothless.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by codecadet on 07/03/17.
  */
@@ -11,16 +14,9 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private String role;
+    private Set<Role> role = new HashSet<>();
 
     public User(){}
-
-    public User(String username, String email, String password, String role) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     public int getId() {
         return id;
@@ -54,11 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Set<Role>  getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Set<Role>  role) {
         this.role = role;
     }
 
@@ -69,5 +65,24 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        return email != null ? email.equals(user.email) : user.email == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = username != null ? username.hashCode() : 0;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
     }
 }

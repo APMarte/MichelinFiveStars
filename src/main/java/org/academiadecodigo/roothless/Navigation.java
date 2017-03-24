@@ -68,14 +68,12 @@ public final class Navigation {
         }
 
         scenes.pop();
-
         setScene(scenes.peek());
     }
 
     private void setScene(Scene scene){
 
         stage.setScene(scene);
-
         stage.show();
     }
 

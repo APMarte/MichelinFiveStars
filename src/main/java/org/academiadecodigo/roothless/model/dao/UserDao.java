@@ -7,12 +7,7 @@ import java.util.List;
 /**
  * Created by codecadet on 23/03/17.
  */
-public interface UserDao {
-
-    void create(User user);
-    User read(String user);
-    void update(User user);
-    void delete(User user);
+public interface UserDao extends Dao<User>{
 
     User findById(int id);
     int listSize();

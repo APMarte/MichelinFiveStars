@@ -51,8 +51,8 @@ public class LoginController implements Initializable {
                 message.setText("Welcome");
                 message.setTextFill(Color.GREEN);
                 message.setVisible(true);
-                Navigation.getInstance().loadScreen("userAccount");
-                Navigation.getInstance().getController("userAccount");
+                Navigation.getInstance().loadScreen("management_view");
+                Navigation.getInstance().getController("management_view");
             } else {
                 message.setTextFill(Color.RED);
                 message.setText("Invalid User, please try again");

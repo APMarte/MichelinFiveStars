@@ -5,8 +5,8 @@ package org.academiadecodigo.roothless.persistence;
  */
 public interface TransactionManager {
 
-    public void begin();
-    public void commit();
-    public void rollback();
+    void begin();
+    void commit();
+    void rollback();
 
 }

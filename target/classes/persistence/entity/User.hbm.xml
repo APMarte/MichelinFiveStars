@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 
-    <class name="org.academiadecodigo.roothless.model.User" table="user">
+    <class name="org.academiadecodigo.roothless.model.User" table="user" schema="mr" lazy="false">
 
         <id name="id" column="id" type="int">
             <generator class="identity" />
@@ -14,6 +14,12 @@
         <property name="username" column="username" type="string"/>
         <property name="password" column="password" type="string"/>
         <property name="email" column="email" type="string"/>
+
+        <set name="role" table="user_role" cascade="all">
+
+            <key>column="user_id"</key>
+            <
+        </set>
 
     </class>
 
