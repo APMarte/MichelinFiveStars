@@ -79,7 +79,9 @@ public class JdbcUserService implements UserService {
                 String emailValue = resultSet.getString("email");
                 String roleValue = resultSet.getString("role");
 
-                user = new User(usernameValue, emailValue, passwordValue, roleValue);
+                user = new User();
+
+                        //usernameValue, emailValue, passwordValue, roleValue);
             }
         } catch (SQLException e) {
             e.printStackTrace();

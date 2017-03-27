@@ -22,7 +22,23 @@ public class HibernateRoleDao extends AbstractDao <Role> implements RoleDao {
         session = HibernateSessionManager.getSession();
     }
 
-//    @Override
+    @Override
+    public User findRole(String name) {
+        User user;
+        try {
+
+            user = (User) session.createCriteria(User.class)
+                    .add(Restrictions.eq("username", name))
+                    .uniqueResult();
+
+        } catch (HibernateException ex) {
+            throw new TransactionException(ex);
+        }
+
+        return user;
+    }
+
+    //    @Override
 //    public void create(Role role) {
 //
 //        try {

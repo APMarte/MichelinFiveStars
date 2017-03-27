@@ -19,10 +19,8 @@ public class HibernateUserDao extends AbstractDao <User> implements UserDao {
 
     Session session;
 
-
-
+    @Override
     public User read(String name) {
-
         User user = null;
         try {
             session = HibernateSessionManager.getSession();
@@ -36,21 +34,6 @@ public class HibernateUserDao extends AbstractDao <User> implements UserDao {
         }
 
         return user;
-    }
-
-
-
-    @Override
-    public int listSize() {
-
-        int size;
-        try {
-            session = HibernateSessionManager.getSession();
-            size = ((Long) session.createQuery("select count(*) from User").uniqueResult()).intValue();
-        } catch (HibernateException hex) {
-            throw new TransactionException(hex);
-        }
-        return size;
     }
 
     @Override
@@ -70,5 +53,66 @@ public class HibernateUserDao extends AbstractDao <User> implements UserDao {
         return user;
     }
 
+    @Override
+    public int listSize() {
+        int size;
+        try {
+            session = HibernateSessionManager.getSession();
+            size = ((Long) session.createQuery("select count(*) from User").uniqueResult()).intValue();
+        } catch (HibernateException hex) {
+            throw new TransactionException(hex);
+        }
+        return size;
+    }
+
+//    public User read(String name) {
+//
+//        User user = null;
+//        try {
+//            session = HibernateSessionManager.getSession();
+//
+//            user = (User) session.createCriteria(User.class)
+//                    .add(Restrictions.eq("username", name))
+//                    .uniqueResult();
+//
+//        } catch (HibernateException ex) {
+//            throw new TransactionException(ex);
+//        }
+//
+//        return user;
+//    }
+//
+//
+//
+//    @Override
+//    public int listSize() {
+//
+//        int size;
+//        try {
+//            session = HibernateSessionManager.getSession();
+//            size = ((Long) session.createQuery("select count(*) from User").uniqueResult()).intValue();
+//        } catch (HibernateException hex) {
+//            throw new TransactionException(hex);
+//        }
+//        return size;
+//    }
+//
+//    @Override
+//    public User findById(int id) {
+//        User user;
+//        try {
+//            session = HibernateSessionManager.getSession();
+//
+//            user = (User) session.createCriteria(User.class)
+//                    .add(Restrictions.eq("id", id))
+//                    .uniqueResult();
+//
+//        } catch (HibernateException ex) {
+//            throw new TransactionException(ex);
+//        }
+//
+//        return user;
+//    }
+//
 
 }// End

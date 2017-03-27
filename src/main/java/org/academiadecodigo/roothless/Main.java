@@ -26,15 +26,10 @@ import java.util.Set;
  */
 public class Main extends Application {
 
-
-    // private ConnectionManager connectionManager; // Just needed for jdbc
-
     @Override
     public void init() {
 
         System.out.println(Thread.currentThread().getName());
-
-        // connectionManager = new ConnectionManager(); // Just needed for jdbc
 
         // Instantiate a user service
         UserDao userDao = new HibernateUserDao();
@@ -45,17 +40,6 @@ public class Main extends Application {
 
         ServiceRegistry.getInstanceService().addService(userService);
 
-        // initiate some roles and users for testing purposes
-
-//        Set<Role> roles = new HashSet<>();
-//
-//        roles.add(new Role("admin"));
-//        roles.add(new Role("user"));
-//        roles.add(new Role("client"));
-//
-//        User user = new User("admin", "abc@gmail.com", "admin" , "admin");
-//
-//        userService.addUser(user);
     }
 
     @Override

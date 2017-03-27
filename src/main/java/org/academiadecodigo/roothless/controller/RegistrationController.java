@@ -131,7 +131,8 @@ public class RegistrationController implements Initializable {
             return;
         }
 
-        userService.addUser(new User(username_register_field.getText(), Security.getHash(password_register_field .getText()), email_register_field.getText(), "client"));
+        userService.addUser(new User());
+                //.addUser(new User(username_register_field.getText(), Security.getHash(password_register_field .getText()), email_register_field.getText(), "client"));
 
         if (userService.findByName(username_register_field.getText()) == null) {
             showConsoleText("registration failed");
