@@ -9,6 +9,7 @@ import org.hibernate.Session;
 public class HibernateTransactionManager implements TransactionManager {
 
     private Session session;
+    HibernateSessionManager sessionManager;
 
     @Override
     public void begin() {
@@ -24,4 +25,14 @@ public class HibernateTransactionManager implements TransactionManager {
     public void rollback() {
         HibernateSessionManager.rollbackTransaction();
     }
+
+    public HibernateSessionManager getSessionManager() {
+        return sessionManager;
+    }
+
+    public void setSessionManager(HibernateSessionManager sessionManager) {
+        this.sessionManager = sessionManager;
+    }
 }
+
+

@@ -1,7 +1,6 @@
 package org.academiadecodigo.roothless.model.dao;
 
 import org.academiadecodigo.roothless.persistence.TransactionException;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -10,9 +9,18 @@ import org.hibernate.Session;
  */
 public class AbstractDao<T> implements Dao<T> {
 
-    Session session;
+    private Session session;
+    private Class<T> type;
 
-
+    @Override
+    public void save(T t) {
+        try {
+            session = HibernateSessionManager.getSession();
+            session.save(t);
+        } catch (HibernateException hibernateException) {
+            throw new TransactionException(hibernateException);
+        }
+    }
 
     @Override
     public void create(T t) {
@@ -29,7 +37,7 @@ public class AbstractDao<T> implements Dao<T> {
     public T findById(Long id) {
         try {
             session = HibernateSessionManager.getSession();
-
+            return HibernateSessionManager.getSession().get(type,id);
         } catch (HibernateException ex) {
             throw new TransactionException(ex);
         }

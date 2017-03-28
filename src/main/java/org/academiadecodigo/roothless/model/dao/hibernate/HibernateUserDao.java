@@ -4,13 +4,9 @@ import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.model.dao.AbstractDao;
 import org.academiadecodigo.roothless.model.dao.UserDao;
 import org.academiadecodigo.roothless.persistence.TransactionException;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateTransactionManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-
-import java.util.List;
 
 /**
  * Created by codecadet on 23/03/17.
@@ -37,23 +33,6 @@ public class HibernateUserDao extends AbstractDao <User> implements UserDao {
     }
 
     @Override
-    public User findById(int id) {
-        User user;
-        try {
-            session = HibernateSessionManager.getSession();
-
-            user = (User) session.createCriteria(User.class)
-                    .add(Restrictions.eq("id", id))
-                    .uniqueResult();
-
-        } catch (HibernateException ex) {
-            throw new TransactionException(ex);
-        }
-
-        return user;
-    }
-
-    @Override
     public int listSize() {
         int size;
         try {
@@ -64,6 +43,26 @@ public class HibernateUserDao extends AbstractDao <User> implements UserDao {
         }
         return size;
     }
+
+
+//    @Override
+//    public User findById(int id) {
+//        User user;
+//        try {
+//            session = HibernateSessionManager.getSession();
+//
+//            user = (User) session.createCriteria(User.class)
+//                    .add(Restrictions.eq("id", id))
+//                    .uniqueResult();
+//
+//        } catch (HibernateException ex) {
+//            throw new TransactionException(ex);
+//        }
+//
+//        return user;
+//    }
+
+
 
 //    public User read(String name) {
 //

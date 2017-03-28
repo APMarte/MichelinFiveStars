@@ -4,10 +4,6 @@ import org.academiadecodigo.roothless.model.dao.RoleDao;
 import org.academiadecodigo.roothless.model.dao.UserDao;
 import org.academiadecodigo.roothless.persistence.TransactionException;
 import org.academiadecodigo.roothless.persistence.TransactionManager;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateTransactionManager;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 
 
 /**

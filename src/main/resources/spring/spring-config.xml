@@ -5,6 +5,9 @@
 
     <import resource="spring-services.xml"/>
     <import resource="spring-dao.xml"/>
-    <import resource="spring-transaction.xml"/>
+    <import resource="spring/persistence.xml"/>
+    <import resource="spring/spring-transaction.xml"/>
+    <import resource="spring/spring-navigation.xml"/>
+    <import resource="spring/spring-sessionfactory.xml"/>
 
 </beans>

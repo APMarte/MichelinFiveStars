@@ -10,7 +10,6 @@ import java.util.List;
 public interface UserDao extends Dao<User>{
 
     User read(String name);
-    User findById(int id);
     int listSize();
 
 }

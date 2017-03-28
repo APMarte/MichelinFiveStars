@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,10 +25,6 @@ public final class Navigation {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-
-    private Stage stage;
-    private static Navigation instance = null;
-
    private Navigation(){
    }
 
@@ -36,16 +33,26 @@ public final class Navigation {
             instance=new Navigation();
         }
         return instance;
-
     }
+    private Stage stage;
+    private static Navigation instance = null;
 
     public void loadScreen(String view) {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEW_PATH + view + ".fxml"));
+            // to verify
+            loader.setControllerFactory(new Callback<Class<?>, Object>() {
+                @Override
+                public Object call(Class<?> param) {
+                    return controllers.get(param.getSimpleName());
+                }
+            });
+
+
             Parent root = loader.load();
 
-            controllers.put(view, loader.<Initializable>getController());
+           // controllers.put(view, loader.<Initializable>getController());
 
             Scene scene= new Scene(root);
             scenes.push(scene);

@@ -4,7 +4,6 @@ import org.academiadecodigo.roothless.model.User;
 import org.academiadecodigo.roothless.model.dao.AbstractDao;
 import org.academiadecodigo.roothless.model.dao.RoleDao;
 import org.academiadecodigo.roothless.persistence.TransactionException;
-import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;

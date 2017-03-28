@@ -5,10 +5,12 @@ import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionMana
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by codecadet on 13/03/17.
  */
+@Transactional
 public class HibernateUserService implements UserService {
 
 
@@ -33,18 +35,20 @@ public class HibernateUserService implements UserService {
         return result;
     }
 
+
+    @Transactional
     @Override
     public void addUser(User user) {
 
         try {
-            session = HibernateSessionManager.beginTransaction();      // Start transaction
+            // session = HibernateSessionManager.beginTransaction();      // Start transaction
             Query query = session.createQuery("from User where username = :username");
             query.setString("username", user.getUsername());
             if (findOne(query) != null) {
                 ;
                 // add a query to check if it exists
                 session.save(user);
-                HibernateSessionManager.commitTransaction();
+             //   HibernateSessionManager.commitTransaction();
             }
         } catch(HibernateException ex){     // insert info on error in console
                 HibernateSessionManager.rollbackTransaction();         // Persist transaction

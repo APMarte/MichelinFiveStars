@@ -15,4 +15,6 @@ public interface Dao <T> {
 
     void delete(T t);
 
+    void save(T t);
+
 }
