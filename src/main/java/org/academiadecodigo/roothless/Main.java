@@ -7,6 +7,7 @@ import org.academiadecodigo.roothless.model.dao.UserDao;
 import org.academiadecodigo.roothless.model.dao.hibernate.HibernateRoleDao;
 import org.academiadecodigo.roothless.model.dao.hibernate.HibernateUserDao;
 import org.academiadecodigo.roothless.persistence.TransactionManager;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.academiadecodigo.roothless.persistence.hibernate.HibernateTransactionManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

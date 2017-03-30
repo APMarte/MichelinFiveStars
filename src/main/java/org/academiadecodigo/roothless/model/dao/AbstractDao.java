@@ -1,6 +1,7 @@
 package org.academiadecodigo.roothless.model.dao;
 
 import org.academiadecodigo.roothless.persistence.TransactionException;
+import org.academiadecodigo.roothless.persistence.hibernate.HibernateSessionManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 

@@ -65,7 +65,6 @@ public class RegistrationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-            userService = (UserService) ServiceRegistry.getInstanceService().getService(UserService.class.getSimpleName());
 
 
         assert username_login_field != null : "fx:id=\"username_login_field\" was not injected: check your FXML file 'registration_view.fxml'.";
