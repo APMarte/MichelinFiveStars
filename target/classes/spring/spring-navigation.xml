@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="navigation" class="org.academiadecodigo.roothless.Navigation">
+        <property name="controllers">
+            <map>
+                <entry key="LoginController" value-ref="loginController"/>
+                <entry key="LogoutXController" value-ref="logoutXController"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="loginController" class="org.academiadecodigo.roothless.controller.LoginController">
+        <property name="service" ref="userService"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+    <bean id="logoutXController" class="org.academiadecodigo.roothless.controller.LogoutXController">
+        <property name="service" ref="userService"/>
+        <property name="navigation" ref="navigation"/>
+    </bean>
+
+</beans>

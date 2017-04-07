@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.roothless.controller.RegistrationController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000203" height="600.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
+      <Button fx:id="login_button" layoutX="120.0" layoutY="512.0" mnemonicParsing="false" onAction="#login_button_pressed" text="Login" />
+      <Button fx:id="register_button" layoutX="503.0" layoutY="512.0" mnemonicParsing="false" onAction="#register_button_pressed" text="Register" />
+      <ImageView fitHeight="200.0" fitWidth="158.0" layoutX="14.0" layoutY="15.0">
+         <image>
+            <Image url="@../photos/CrestsROOThless.jpg" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="password_login_field" layoutX="17.0" layoutY="465.0" prefHeight="27.0" prefWidth="252.0" promptText="insert password here" />
+      <TextField fx:id="username_login_field" layoutX="17.0" layoutY="390.0" prefHeight="27.0" prefWidth="252.0" promptText="insert user name here" />
+      <Text fill="#eed114" layoutX="18.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#eed114" layoutX="19.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#eed114" layoutX="15.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#eed114" layoutX="15.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="please login below">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#eed114" layoutX="14.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Michelin 5 Star reservations" wrappingWidth="260.5537109375">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="323.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="please register below" wrappingWidth="418.6162109375">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="323.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome," wrappingWidth="418.6162109375">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="323.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="557.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="320.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="478.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="653.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify password" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="324.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="eMail" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="662.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="323.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Number" wrappingWidth="135.00001430511475">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#9a870d" layoutX="558.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIF" wrappingWidth="109.1249942779541">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="firstname_register_field" layoutX="323.0" layoutY="139.0" prefHeight="27.0" prefWidth="210.0" promptText="insert first name here" />
+      <TextField fx:id="lastname_register_field" layoutX="557.0" layoutY="139.0" prefHeight="27.0" prefWidth="210.0" promptText="insert last name here" />
+      <TextField fx:id="email_register_field" layoutX="323.0" layoutY="205.0" prefHeight="27.0" prefWidth="310.0" promptText="insert email here" />
+      <TextField fx:id="mobile_register_field" layoutX="659.0" layoutY="205.0" prefHeight="27.0" prefWidth="109.0" promptText="insert mobile here" />
+      <TextField fx:id="nif_register_field" layoutX="557.0" layoutY="271.0" prefHeight="27.0" prefWidth="210.0" promptText="insert NIF here" />
+      <TextField fx:id="password_verify_register_field" accessibleRole="PASSWORD_FIELD" layoutX="633.0" layoutY="442.0" prefHeight="27.0" prefWidth="135.0" promptText="verify password here" />
+      <TextField fx:id="password_register_field" accessibleRole="PASSWORD_FIELD" layoutX="478.0" layoutY="442.0" prefHeight="27.0" prefWidth="135.0" promptText="insert password here" />
+      <TextField fx:id="username_register_field" layoutX="319.0" layoutY="442.0" prefHeight="27.0" prefWidth="135.0" promptText="insert username here" />
+      <TextField fx:id="creditcard_register_field" layoutX="324.0" layoutY="271.0" prefHeight="27.0" prefWidth="210.0" promptText="insert credit card number" />
+      <Text fill="#9a870d" layoutX="325.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiration Date" wrappingWidth="135.00001430511475">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="expiration_register_field" layoutX="324.0" layoutY="338.0" prefHeight="27.0" prefWidth="210.0" promptText="insert card expiration here" />
+      <Label fx:id="errorLabel" layoutX="397.0" layoutY="554.0" prefHeight="17.0" prefWidth="282.0" />
+   </children>
+</Pane>
